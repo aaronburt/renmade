@@ -28,6 +28,22 @@ for (const folder of commandFolders) {
                 console.log('Skipping /gemini command: GEMINI_API_KEY not set.');
                 continue;
             }
+            if (command.data.name === 'weather') {
+                if (!config.OPENWEATHER_API_KEY) {
+                    console.warn('Skipping /weather command: OPENWEATHER_API_KEY not set.');
+                    continue;
+                }
+                try {
+                    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=${config.OPENWEATHER_API_KEY}`);
+                    if (response.status === 401) {
+                        console.warn('Skipping /weather command: OPENWEATHER_API_KEY is invalid (401).');
+                        continue;
+                    }
+                } catch (error) {
+                    console.warn(`Skipping /weather command: Fetch validation failed - ${error.message}`);
+                    continue;
+                }
+            }
             client.commands.set(command.data.name, command);
             loadedCommands.push(command.data.name);
         } else {

@@ -19,6 +19,7 @@ const envSchema = z.object({
         .regex(/^\d+$/, 'Owner ID must be a numeric string'),
     GEMINI_API_KEY: z.string().optional().or(z.literal('')),
     GEMINI_MODEL_NAME: z.string().optional().or(z.literal('')),
+    OPENWEATHER_API_KEY: z.string().optional().or(z.literal('')),
 });
 
 const result = envSchema.safeParse(process.env);
