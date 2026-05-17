@@ -24,7 +24,7 @@ export async function execute(interaction) {
     addTimer(interaction.user.id, interaction.channelId, reason, timestamp);
 
     await interaction.reply({
-        content: `✅ I will remind you about **${reason}** in ${minutes} minute(s)!`,
+        content: `I will remind you about **${reason}** in ${minutes} minute(s)!`,
         flags: hidden ? [MessageFlags.Ephemeral] : []
     });
 }

@@ -25,8 +25,8 @@ export async function execute(interaction) {
     ].filter(Boolean);
 
     const embed = new EmbedBuilder()
-        .setTitle('📊 Poll')
-        .setDescription(`**${question}**\n\n` + options.map((opt, i) => `${i + 1}️⃣ ${opt}: 0 votes`).join('\n'))
+        .setTitle('Poll')
+        .setDescription(`**${question}**\n\n` + options.map((opt, i) => `[${i + 1}] ${opt}: 0 votes`).join('\n'))
         .setColor(0x00FF00)
         .setTimestamp();
 
@@ -35,7 +35,7 @@ export async function execute(interaction) {
         row.addComponents(
             new ButtonBuilder()
                 .setCustomId(`poll_vote_${i}`)
-                .setLabel(`${i + 1}️⃣`)
+                .setLabel(`Option ${i + 1}`)
                 .setStyle(ButtonStyle.Secondary)
         );
     });

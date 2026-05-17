@@ -57,7 +57,7 @@ export async function execute(interaction) {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${config.OPENWEATHER_API_KEY}&units=metric`);
 
             if (!response.ok) {
-                await interaction.editReply({ content: `⚠️ Could not find weather for city: **${city}**. Please check the spelling and try again.` });
+                await interaction.editReply({ content: `Could not find weather for city: **${city}**. Please check the spelling and try again.` });
                 return;
             }
 

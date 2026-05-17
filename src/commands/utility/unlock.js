@@ -17,13 +17,13 @@ export async function execute(interaction) {
         });
 
         await interaction.reply({
-            content: '🔓 This channel has been **unlocked**. Users can now send messages again.',
+            content: 'This channel has been **unlocked**. Users can now send messages again.',
             flags: hidden ? [MessageFlags.Ephemeral] : []
         });
     } catch (error) {
         console.error(error);
         await interaction.reply({
-            content: '❌ Failed to unlock the channel. Ensure I have the **Manage Channels** permission.',
+            content: 'Failed to unlock the channel. Ensure I have the **Manage Channels** permission.',
             flags: [MessageFlags.Ephemeral]
         });
     }

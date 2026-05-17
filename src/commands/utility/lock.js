@@ -17,13 +17,13 @@ export async function execute(interaction) {
         });
 
         await interaction.reply({
-            content: '🔒 This channel has been **locked**. Users can no longer send messages.',
+            content: 'This channel has been **locked**. Users can no longer send messages.',
             flags: hidden ? [MessageFlags.Ephemeral] : []
         });
     } catch (error) {
         console.error(error);
         await interaction.reply({
-            content: '❌ Failed to lock the channel. Ensure I have the **Manage Channels** permission.',
+            content: 'Failed to lock the channel. Ensure I have the **Manage Channels** permission.',
             flags: [MessageFlags.Ephemeral]
         });
     }

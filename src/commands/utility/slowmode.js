@@ -22,13 +22,13 @@ export async function execute(interaction) {
         await interaction.channel.setRateLimitPerUser(seconds);
         
         await interaction.reply({
-            content: `✅ Slowmode has been set to **${seconds}** seconds.`,
+            content: `Slowmode has been set to **${seconds}** seconds.`,
             flags: hidden ? [MessageFlags.Ephemeral] : []
         });
     } catch (error) {
         console.error(error);
         await interaction.reply({
-            content: '❌ Failed to update slowmode. Ensure I have the **Manage Channels** permission.',
+            content: 'Failed to update slowmode. Ensure I have the **Manage Channels** permission.',
             flags: [MessageFlags.Ephemeral]
         });
     }
